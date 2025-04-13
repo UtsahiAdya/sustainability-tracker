@@ -68,6 +68,18 @@ async function updateOfficeTrips() {
     await mongoose.disconnect();
   }
 }
+if (require.main === module) {
+  updateOfficeTrips()
+    .then(() => {
+      console.log("Office trips updated successfully");
+      process.exit(0);
+    })
+    .catch((err) => {
+      console.error("Error updating office trips:", err);
+      process.exit(1);
+    });
+}
+
 
 module.exports = updateOfficeTrips;
 
