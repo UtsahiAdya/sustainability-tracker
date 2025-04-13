@@ -1,5 +1,5 @@
 const express = require("express");
-const Profile = require("../models/profile");
+const Profile = require("../models/Profile");
 const User = require("../models/User");
 const ensureAuthenticated = require("../middleware/authMiddleware");
 

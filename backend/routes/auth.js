@@ -1,6 +1,6 @@
 const express = require("express");
 const passport = require("passport");
-const Profile = require("../models/profile"); // Import Profile model
+const Profile = require("../models/Profile"); // Import Profile model
 const User = require("../models/User"); // ✅ Import User model
 
 const router = express.Router();

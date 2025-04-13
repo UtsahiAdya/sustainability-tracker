@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Trip = require("../models/trip");
-const Profile = require("../models/profile");
+const Profile = require("../models/Profile");
 const Leaderboard = require("../models/Leaderboard");
 const ensureAuthenticated = require("../middleware/authMiddleware");
 

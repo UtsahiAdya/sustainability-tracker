@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Profile = require("../models/profile");
+const Profile = require("../models/Profile");
 const ensureAuthenticated = require("../middleware/authMiddleware");
 
 // 🏆 Get global leaderboard (Top 10 users)
