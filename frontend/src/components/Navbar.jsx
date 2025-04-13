@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "./navbar.css";
+import "./Navbar.css";
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
