@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+    background-color: #000; /* or whatever background you want */
+  }
+  .leaderboard-row {
+    transition: all 0.3s ease;
+  }
+  
+  .leaderboard-row:hover {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* background: rgba(255, 255, 255, 0.2); */
+    box-shadow: 0 4px 12px rgba(31, 38, 135, 0.2);
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    border:2px solid #006400;
+    background-color:rgba(255, 215, 0, 0.1);
+    cursor: pointer;
+  }
+  
