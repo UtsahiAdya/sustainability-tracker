@@ -27,6 +27,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const commuteOptions = [
   "Walk",
@@ -68,7 +69,7 @@ const Trips = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:6005/api/trips", { withCredentials: true })
+      .get(`${apiUrl}/api/trips`, { withCredentials: true })
       .then((res) => setTrips(res.data))
       .catch(() => showSnackbar("Error fetching trips", "error"))
       .finally(() => setLoading(false));
@@ -105,7 +106,7 @@ const Trips = () => {
     const formattedTrip = { ...newTrip, date: selectedDate.toISOString() };
 
     axios
-      .post("http://localhost:6005/api/trips", formattedTrip, {
+      .post(`${apiUrl}/api/trips`, formattedTrip, {
         withCredentials: true,
       })
       .then((res) => {
@@ -124,7 +125,7 @@ const Trips = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:6005/api/trips/${id}`, {
+      .delete(`${apiUrl}/api/trips/${id}`, {
         withCredentials: true,
       })
       .then(() => {
@@ -174,7 +175,7 @@ const Trips = () => {
     const formattedTrip = { ...editTrip, date: selectedDate.toISOString() };
 
     axios
-      .put(`http://localhost:6005/api/trips/${editTrip._id}`, formattedTrip, {
+      .put(`${apiUrl}/api/trips/${editTrip._id}`, formattedTrip, {
         withCredentials: true,
       })
       .then((res) => {

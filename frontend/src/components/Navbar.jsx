@@ -2,20 +2,22 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Navbar.css";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+   
     axios
-      .get("http://localhost:6005/auth/user", { withCredentials: true })
+      .get(`${apiUrl}/auth/user`, { withCredentials: true })
       .then((res) => setUser(res.data))
       .catch(() => setUser(null));
   }, []);
 
   const handleLogout = () => {
     axios
-      .get("http://localhost:6005/auth/logout", { withCredentials: true })
+      .get( `${apiUrl}/auth/logout`, { withCredentials: true })
       .then(() => {
         setUser(null);
         window.location.href = "/login"; // Redirect to login explicitly

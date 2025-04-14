@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import axios from "axios";
 import { useEffect, useState } from "react";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function App() {
   const [user, setUser] = useState(null);
@@ -13,7 +14,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:6005/auth/user", { withCredentials: true })
+      .get(`${apiUrl}/auth/user`, { withCredentials: true })
       .then((res) => setUser(res.data))
       .catch(() => setUser(null))
       .finally(() => setLoading(false));

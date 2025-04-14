@@ -3,7 +3,8 @@ import "./login.css";
 
 const Login = () => {
   const loginWithGoogle = () => {
-    window.open("http://localhost:6005/auth/google", "_self");
+    const apiUrl = import.meta.env.VITE_API_URL;
+    window.open(`${apiUrl}/auth/google`, "_self");
   };
 
   return (

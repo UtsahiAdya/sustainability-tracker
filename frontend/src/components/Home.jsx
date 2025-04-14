@@ -54,10 +54,11 @@ const Home = () => {
 
   const fetchData = async () => {
     try {
+      const apiUrl = import.meta.env.VITE_API_URL;
       const [userRes, leaderboardRes, userRankRes] = await Promise.all([
-        axios.get("http://localhost:6005/api/home", { withCredentials: true }),
-        axios.get("http://localhost:6005/api/leaderboard", { withCredentials: true }),
-        axios.get("http://localhost:6005/api/leaderboard/rank", { withCredentials: true }),
+        axios.get(`${apiUrl}/api/home`, { withCredentials: true }),
+        axios.get(`${apiUrl}/api/leaderboard`, { withCredentials: true }),
+        axios.get(`${apiUrl}/api/leaderboard/rank`, { withCredentials: true }),
       ]);
 
       setUserInfo(userRes.data);

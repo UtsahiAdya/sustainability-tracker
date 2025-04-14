@@ -12,6 +12,7 @@ import {
   Paper,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const commuteOptions = ["Walk", "Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"];
 
@@ -27,7 +28,7 @@ const Profile = () => {
   //Fetch user's existing profile
   useEffect(() => {
     axios
-      .get("http://localhost:6005/api/profile", { withCredentials: true })
+      .get(`${apiUrl}/api/profile`, { withCredentials: true })
       .then((response) => {
         const profile = response.data;
         if (profile) {
@@ -100,7 +101,7 @@ const Profile = () => {
     };
 
     axios
-      .post("http://localhost:6005/api/profile", profileData, {
+      .post(`${apiUrl}/api/profile`, profileData, {
         withCredentials: true,
       })
       .then(() => {
