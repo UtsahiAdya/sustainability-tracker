@@ -4,6 +4,7 @@ import "./login.css";
 const Login = () => {
   const loginWithGoogle = () => {
     const apiUrl = import.meta.env.VITE_API_URL;
+     console.log("API URL:", apiUrl);
     window.open(`${apiUrl}/auth/google`, "_self");
   };
 
