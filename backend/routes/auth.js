@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require("passport");
 const Profile = require("../models/Profile"); // Import Profile model
 const User = require("../models/User"); // ✅ Import User model
+const FRONTEND_URL = process.env.FRONTEND_URL;
 
 const router = express.Router();
 
@@ -17,7 +18,7 @@ router.get(
 // 🔹 Google OAuth Callback Route
 router.get(
   "/google/callback",
-  passport.authenticate("google", { failureRedirect: "http://localhost:3000/login" }),
+  passport.authenticate("google", { failureRedirect: `${FRONTEND_URL}/login` }),
   async (req, res) => {
     try {
       // Fetch the user
@@ -28,7 +29,7 @@ router.get(
         // Update firstLogin to false
         user.firstLogin = false;
         await user.save();
-        return res.redirect("http://localhost:3000/profile");
+        return res.redirect(`${FRONTEND_URL}/profile`);
       }
 
       // Check if profile exists
@@ -36,14 +37,14 @@ router.get(
 
       if (!existingProfile) {
         // Redirect to profile setup if no profile found
-        return res.redirect("http://localhost:3000/profile");
+        return res.redirect(`${FRONTEND_URL}/profile`);
       }
 
       // Redirect to home if profile exists
-      res.redirect("http://localhost:3000/home");
+      res.redirect(`${FRONTEND_URL}/home`);
     } catch (err) {
       console.error("Error checking user profile:", err);
-      res.redirect("http://localhost:3000/login");
+      res.redirect(`${FRONTEND_URL}/login`);
     }
   }
 );
