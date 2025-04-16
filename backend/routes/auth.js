@@ -1,7 +1,10 @@
+require('dotenv').config();
 const express = require("express");
 const passport = require("passport");
 const Profile = require("../models/Profile"); // Import Profile model
 const User = require("../models/User"); // ✅ Import User model
+console.log("Frontend URL:", process.env.FRONTEND_URL); // Check if it's printed correctly
+// console.log("All environment variables:", process.env);
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
 const router = express.Router();
@@ -41,6 +44,7 @@ router.get(
       }
 
       // Redirect to home if profile exists
+      
       res.redirect(`${FRONTEND_URL}/home`);
     } catch (err) {
       console.error("Error checking user profile:", err);

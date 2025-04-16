@@ -1,11 +1,14 @@
+// require('dotenv').config();
 import React from "react";
 import "./login.css";
+const apiUrl = import.meta.env.VITE_API_URL|| "API URL not found";
+console.log("API URL:", apiUrl);
+
 
 const Login = () => {
   const loginWithGoogle = () => {
-    const apiUrl = import.meta.env.VITE_API_URL;
-     console.log("API URL:", apiUrl);
-    window.open(`${apiUrl}/auth/google`, "_self");
+    // window.open(`${apiUrl}`, "_self");
+    window.location.href = `${apiUrl}/auth/google`;
   };
 
   return (
