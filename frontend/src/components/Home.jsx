@@ -55,6 +55,10 @@ const Home = () => {
   const fetchData = async () => {
     try {
       const apiUrl = import.meta.env.VITE_API_URL;
+      const authRes = await axios.get(`${apiUrl}/auth/user`, {
+        withCredentials: true,
+      });
+      console.log("Authenticated user:", authRes.data);
       console.log(apiUrl);
       const [userRes, leaderboardRes, userRankRes] = await Promise.all([
         axios.get(`${apiUrl}/api/home`, { withCredentials: true }),
