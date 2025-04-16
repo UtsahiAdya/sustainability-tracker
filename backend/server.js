@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
+const MongoStore = require('connect-mongo')
 const cors = require("cors");
 const passport = require("passport");
 const authRoutes = require("./routes/auth");
@@ -31,13 +32,25 @@ app.use(
   })
 );
 
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch((err) => console.error("MongoDB Connection Error:", err));
+
 // ✅ Middleware for sessions
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: process.env.NODE_ENV === 'production',  sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',maxAge: 24 * 60 * 60 * 1000 }, // Set `true` in production with HTTPS
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI, // MongoDB connection URL
+      collectionName: 'sessions', // Optional: specify the session collection name
+      ttl: 14 * 24 * 60 * 60, // Optional: set session expiry time (TTL in seconds)
+    }),
+    cookie: { secure: process.env.NODE_ENV === 'production',  
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      maxAge: 24 * 60 * 60 * 1000 }, // Set `true` in production with HTTPS
   })
 );
 
@@ -59,10 +72,7 @@ app.get("/", (req, res) => {
 });
 
 // ✅ Connect to MongoDB
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB Connected"))
-  .catch((err) => console.error("MongoDB Connection Error:", err));
+
 
 const PORT = process.env.PORT || 6005;
 app.listen(PORT, () => {
