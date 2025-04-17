@@ -21,7 +21,7 @@ router.get(
 // 🔹 Google OAuth Callback Route
 router.get(
   "/google/callback",
-  passport.authenticate("google", { failureRedirect: `${FRONTEND_URL}/login` }),
+  passport.authenticate("google", { failureRedirect:`${FRONTEND_URL}/login` }),
   async (req, res) => {
     try {
       // Fetch the user
@@ -55,6 +55,7 @@ router.get(
 
 // 🔹 Check if user is logged in (Session Persistence)
 router.get("/user", (req, res) => {
+  console.log('Session:', req.session); 
   if (req.isAuthenticated()) {
     res.json(req.user);
   } else {
