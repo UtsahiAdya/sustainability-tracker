@@ -14,6 +14,8 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 const apiUrl = import.meta.env.VITE_API_URL;
+import "./Profile.css";
+
 
 const commuteOptions = ["Walk", "Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"];
 
@@ -25,7 +27,18 @@ const Profile = () => {
   const [commutePercentages, setCommutePercentages] = useState({});
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
+const ecoPoints = {
+  Walk: 10,
+  Metro: 9,
+  Bus: 8,
+  Bike: 5,
+  EV: 9,
+  Car: 2,
+  Train: 8,
+  Airplane: 0.01
+};
   //Fetch user's existing profile
   useEffect(() => {
     axios
@@ -117,15 +130,17 @@ const Profile = () => {
   };
 
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "#F0FFF0",
-        padding: 3,
-      }}
+    <>
+    <Box   
+      // sx={{
+      //   minHeight: "100vh",
+      //   display: "flex",
+      //   justifyContent: "center",
+      //   alignItems: "center",
+      //   background: "#F0FFF0",
+      //   padding: 3,
+      // }}
+      className="profile-container"
     >
       <Paper
         elevation={12}
@@ -134,13 +149,14 @@ const Profile = () => {
           width: "100%",
           padding: 4,
           borderRadius: 3,
-          background: "rgba(255, 255, 255, 0.1)",
-          backdropFilter: "blur(10px)",
-          color: "#013220",
+          // background: "rgba(255, 255, 255, 0.1)",
+          background:"#F0FFF0",
+          // backdropFilter: "blur(8px)",
+          // color: "#013220",
           boxShadow: "0px 8px 25px rgba(0, 0, 0, 0.2)",
         }}
       >
-        <Typography variant="h5" gutterBottom textAlign="center" sx={{ color: "#006400" }}>
+        <Typography variant="h5" gutterBottom textAlign="center" sx={{ color: "#013220" }}>
           Profile Information
         </Typography>
 
@@ -163,6 +179,7 @@ const Profile = () => {
                 "& fieldset": { borderColor: "#535C91" },
                 "&:hover fieldset": { borderColor: "#9290C3" },
                 "&.Mui-focused fieldset": { borderColor: "#006400" },
+                backgroundColor: "rgba(255, 255, 255, 0.05)"
               },
             }}
           />
@@ -182,6 +199,7 @@ const Profile = () => {
                 "& fieldset": { borderColor: "#535C91" },
                 "&:hover fieldset": { borderColor: "#9290C3" },
                 "&.Mui-focused fieldset": { borderColor: "#006400" },
+                backgroundColor: "rgba(255, 255, 255, 0.05)"
               },
             }}
           />
@@ -198,10 +216,13 @@ const Profile = () => {
                     <Checkbox
                       checked={selectedCommutes.includes(mode)}
                       onChange={() => handleCheckboxChange(mode)}
-                      sx={{ color: "#013220" }}
+                      sx={{ color: "#013220",
+                        backgroundColor: "rgba(255, 255, 255, 0.05)"
+                       }}
                     />
                   }
-                  label={<Typography sx={{ color: "#013220" }}>{mode}</Typography>}
+                  label={<Typography sx={{ color: "#013220" }}
+                  >{mode}</Typography>}
                 />
               </Grid>
               {selectedCommutes.includes(mode) && (
@@ -220,6 +241,7 @@ const Profile = () => {
                         "& fieldset": { borderColor: "#535C91" },
                         "&:hover fieldset": { borderColor: "#9290C3" },
                         "&.Mui-focused fieldset": { borderColor: "#006400" },
+                        backgroundColor: "rgba(255, 255, 255, 0.05)"
                       },
                     }}
                   />
@@ -243,6 +265,10 @@ const Profile = () => {
         </form>
       </Paper>
     </Box>
+    
+</>
+
+
   );
 };
 

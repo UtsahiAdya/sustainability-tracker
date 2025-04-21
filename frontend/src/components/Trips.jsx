@@ -29,6 +29,8 @@ import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 const apiUrl = import.meta.env.VITE_API_URL;
+import tripsBg from '../assets/img/img-fd41a3c9-b372-4ef5-848f-b5aa34605f3f.png';
+
 
 const commuteOptions = [
   "Walk",
@@ -201,9 +203,69 @@ const Trips = () => {
         textAlign: "center",
       }}
     >
-      <h2 style={{ color: "#006400", fontSize: "2rem", marginBottom: "20px" }}>
+      {/* <h2 style={{ color: "#006400", fontSize: "2rem", marginBottom: "20px" }}>
         Your Trips
-      </h2>
+      </h2> */}
+        <div style={{ 
+        position: "relative", 
+        textAlign: "center", 
+        marginBottom: "40px", 
+        borderRadius: "20px", 
+        overflow: "hidden",
+        height: "200px"  // Make sure there’s enough height
+      }}>
+        {/* Background Layer */}
+        <div
+          style={{
+            backgroundImage: `url(${tripsBg})`,
+            backgroundSize: "150px",
+            backgroundRepeat: "repeat",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            opacity: 0.3,
+            zIndex: 1,
+          }}
+        />
+      
+        {/* Overlay */}
+        <div
+    style={{
+      backgroundColor: "rgba(60, 59, 59, 0)",
+      backdropFilter: "blur(1px)", // Adds a blur to background for readability
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      zIndex: 2,
+    }}
+  />
+      
+        {/* Text Content */}
+        <div
+          style={{
+            position: "relative",
+            zIndex: 3,
+            color: "#013220",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width:"30%",
+            margin:"auto",
+            backgroundColor:"#F0FFF0",
+            height: "80%",
+            fontSize: "24px",
+            fontWeight: "bold",
+            textShadow: "2px 2px 8px rgba(0, 0, 0, 0.7)", // Adds shadow for more contrast
+
+          }}
+        >
+          <h2>Your Trips</h2>
+        </div>
+      </div>
 
       {loading ? (
         <div

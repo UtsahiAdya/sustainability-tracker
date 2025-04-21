@@ -1,5 +1,39 @@
+html{
+  background-color: #F0FFF0; 
+}
+
+
+div#root{
+  background-color: #F0FFF0; 
+}
+
 .login-page {
     text-align: center;
     margin-top: 50px;
+    
   }
+
+  .login-btn{
+  background-color:#006400;
+  color:#F0FFF0;
+  font-size: 1rem;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-top: 2%;
+  }
+
   
+.login-btn:hover {
+  background-color: #228B22; /* lighter green for hover */
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 100, 0, 0.4);
+  transform: translateY(-2px);
+}
+  
+.login-text{
+  color: #013220
+}

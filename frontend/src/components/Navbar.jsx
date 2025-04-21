@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Navbar.css";
+import CyclingLogo from '../assets/img/logo.png';
+
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const Navbar = () => {
@@ -28,7 +30,16 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
+       {/* <img src={logo} alt="Logo" className="logo-img" /> */}
+       <div className="logo-section" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+      <img
+        src={CyclingLogo}
+        alt="Cycling Logo"
+        className="logo-img"
+        style={{ width: "40px", height: "40px" }}
+      />
       <h2 className="logo">Travel towards Sustainability</h2>
+      </div>
       <ul className="nav-links">
         
         <li>
@@ -41,7 +52,23 @@ const Navbar = () => {
           <Link to="/profile">MyCommute</Link>
         </li>
         <li>
-          <a href="#leaderboard">Leaderboard</a>
+          {/* <a href="/home#leaderboard" className="nav-link">Leaderboard</a> */}
+          <Link
+  to="/home#leaderboard"
+  className="nav-link"
+  onClick={() => {
+    if (window.location.pathname === "/home") {
+      const el = document.getElementById("leaderboard");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
+  Leadership
+</Link>
+
+        </li>
+        <li>
+          <Link to="/points">PointsAllocation </Link>
         </li>
         {user ? (
           <li>

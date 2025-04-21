@@ -14,9 +14,12 @@ import {
   Table, TableHead, TableBody, TableRow, TableCell, TableContainer
 } from "@mui/material";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recharts";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Stack from '@mui/material/Stack';
 import "../App.css"
+import welcomeBg from '../assets/img/img-9091d1ae-a786-4375-bb3e-55c2460c389f.png';
+
+
 
 
 
@@ -74,6 +77,14 @@ const Home = () => {
       console.error("Error fetching data:", error);
     } finally {
       setLoading(false);
+      if (location.hash === "#leaderboard") {
+        setTimeout(() => {
+          const el = document.getElementById("leaderboard");
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100); // Slight delay to ensure DOM is ready
+      }
     }
   };
 
@@ -105,9 +116,73 @@ const Home = () => {
   // console.log("Pie Data:", pieData);
   return (
     <div style={{ backgroundColor: BG_COLOR, minHeight: "100vh", padding: "20px", color: TEXT_COLOR }}>
-      <Typography variant="h4" gutterBottom align="center" style={{ color: TEXT_COLOR }}>
+      {/* <Typography variant="h4" gutterBottom align="center" style={{ color: TEXT_COLOR }}>
         Welcome, {name} 👋
-      </Typography>
+      </Typography> */}
+       <div
+  style={{
+    position: "relative",
+    textAlign: "center",
+    marginBottom: "40px",
+    borderRadius: "20px",
+    overflow: "hidden",
+    height: "200px",
+  }}
+>
+  {/* Background Layer */}
+  <div
+    style={{
+      backgroundImage: `url(${welcomeBg})`,
+      backgroundSize: "150px",
+      backgroundRepeat: "repeat",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      opacity: 0.5, // Slightly lower for more subtlety
+      zIndex: 1,
+    }}
+  />
+
+  {/* Darker Overlay with Blur */}
+  <div
+    style={{
+      backgroundColor: "rgba(60, 59, 59, 0)",
+      backdropFilter: "blur(1px)", // Adds a blur to background for readability
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      zIndex: 2,
+    }}
+  />
+
+  {/* Text Content */}
+  <div
+    style={{
+      position: "relative",
+      zIndex: 3,
+      color: "#013220",
+      background:"white",
+      width:"30%",
+      margin:"auto",
+      backgroundColor:"#F0FFF0",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "80%",
+      fontSize: "28px",
+      fontWeight: "800",
+      textShadow: "2px 2px 8px rgba(0, 0, 0, 0.7)", // Adds shadow for more contrast
+    }}
+  >
+    Welcome, {name} 👋
+  </div>
+</div>
+
+
 
       {/* Stats Section */}
       <Grid container spacing={3} justifyContent="center">
@@ -200,7 +275,7 @@ const Home = () => {
        
 <div id="leaderboard">
 <Typography variant="h5" gutterBottom align="center" style={{ marginTop: "40px" }} >
-  🏆 Sustainability Leaderboard
+  🏆 Sustainability Leadership
 </Typography>
 
 <TableContainer

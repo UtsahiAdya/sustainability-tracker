@@ -1,5 +1,6 @@
 .navbar {
-  background: #F0FFF0 !important; /* Fully dark background */
+  /* background-image: url('../assets/img/png-clipart-green-bicycle-bicycle-sustainable-transport-public-transport-environmentally-friendly-bike-fashion-p'); */
+  /* background: #F0FFF0 !important; Fully dark background */
   backdrop-filter: blur(10px);
   padding: 15px 30px;
   display: flex;
@@ -11,9 +12,22 @@
 }
 
 .logo {
+  /* font-size: 1.5rem;
+  font-weight: bold;
+  color: #006400; Orange accent */
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #006400; /* Orange accent */
+  color: #006400;
+}
+
+.logo-img {
+  height: 32px;
+  width: 102px;
+  object-fit: contain;
 }
 
 .nav-links {
