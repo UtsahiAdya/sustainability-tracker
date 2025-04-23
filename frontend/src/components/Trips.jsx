@@ -34,11 +34,12 @@ import tripsBg from '../assets/img/img-fd41a3c9-b372-4ef5-848f-b5aa34605f3f.png'
 
 const commuteOptions = [
   "Walk",
+  "Cycle",
   "Metro",
   "Bus",
   "Car",
   "EV",
-  "Bike",
+  "MotorBike",
   "Train",
   "Airplane",
 ];

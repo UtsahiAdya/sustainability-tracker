@@ -36,7 +36,7 @@ const Navbar = () => {
         src={CyclingLogo}
         alt="Cycling Logo"
         className="logo-img"
-        style={{ width: "40px", height: "40px" }}
+        style={{ width: "65px", height: "65px", margin:"0px", padding:"0px" }}
       />
       <h2 className="logo">Travel towards Sustainability</h2>
       </div>

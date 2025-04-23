@@ -22,9 +22,10 @@ import FlightIcon from "@mui/icons-material/Flight";
 
 const commuteOptions = [
   { name: "Walk", points: 10, icon: <DirectionsWalkIcon color="success" /> },
+  { name: "Cycle", points: 10, icon: <DirectionsBikeIcon color="success" /> },
   { name: "Metro", points: 9, icon: <DirectionsSubwayIcon color="primary" /> },
   { name: "Bus", points: 8, icon: <DirectionsBusIcon color="primary" /> },
-  { name: "Bike", points: 5, icon: <DirectionsBikeIcon color="success" /> },
+  { name: "MotorBike", points: 5, icon: <DirectionsBikeIcon color="action" /> },
   { name: "EV", points: 9, icon: <ElectricCarIcon color="success" /> },
   { name: "Car", points: 2, icon: <DirectionsCarIcon color="warning" /> },
   { name: "Train", points: 8, icon: <TrainIcon color="info" /> },

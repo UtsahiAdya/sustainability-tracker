@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const commuteSchema = new mongoose.Schema({
   mode: {
     type: String,
-    enum: ["Walk", "Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"],
+    enum: ["Walk","Cycle", "Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"],
     required: true,
   },
   percentage: { type: Number, min: 0, max: 100, required: true },
@@ -19,7 +19,7 @@ const profileSchema = new mongoose.Schema({
   distanceFromOffice: { type: Number, required: true },
   defaultCommuteMode: {
     type: String,
-    enum: ["Walk", "Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"],
+    enum: ["Walk","Cycle", "Metro", "Bus", "Car", "EV", "MotorBike", "Train", "Airplane"],
     required: true,
   },
   commuteModes: {
@@ -36,11 +36,12 @@ const profileSchema = new mongoose.Schema({
   // 🔥 Add this new field to track points by each mode
   pointsByMode: {
     Walk: { type: Number, default: 0 },
+    Cycle: { type: Number, default: 0 },
     Metro: { type: Number, default: 0 },
     Bus: { type: Number, default: 0 },
     Car: { type: Number, default: 0 },
     EV: { type: Number, default: 0 },
-    Bike: { type: Number, default: 0 },
+    MotorBike: { type: Number, default: 0 },
     Train: { type: Number, default: 0 },
     Airplane: { type: Number, default: 0 },
   },

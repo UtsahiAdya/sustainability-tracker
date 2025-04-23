@@ -9,14 +9,15 @@ const ensureAuthenticated = require("../middleware/authMiddleware");
 //Points Calculation Function
 const calculatePoints = (commuteMode, distance) => {
   const pointsMap = {
-    Walk: 5,
-    Metro: 4,
-    Bus: 3,
-    Car: 1,
-    EV: 2,
-    Bike: 4,
-    Train: 3,
-    Airplane: 0.5,
+    Walk: 10,
+    Cycle:10,
+    Metro: 9,
+    Bus: 8,
+    Car: 2,
+    EV: 9,
+    MotorBike: 5,
+    Train: 8,
+    Airplane: 0.01,
   };
   const points = pointsMap[commuteMode] * distance;
   return Math.round(points);
@@ -45,7 +46,7 @@ router.post("/", ensureAuthenticated, async (req, res) => {
     if (!distance || distance <= 0) {
       return res.status(400).json({ error: "Distance must be a positive number" });
     }
-    if (!commuteMode || !["Walk", "Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"].includes(commuteMode)) {
+    if (!commuteMode || !["Walk","Cycle" ,"Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"].includes(commuteMode)) {
       return res.status(400).json({ error: "Invalid commute mode" });
     }
     if (!type || !["office", "errands", "business"].includes(type)) {
@@ -153,7 +154,7 @@ router.put("/:id", ensureAuthenticated, async (req, res) => {
     if( distance <= 0){
       return res.status(400).json({error:"Distance must be positive and greater than 0"})
     }
-    if (!commuteMode || !["Walk", "Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"].includes(commuteMode)) {
+    if (!commuteMode || !["Walk","Cycle" ,"Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"].includes(commuteMode)) {
       return res.status(400).json({ error: "Invalid commute mode" });
     }
     if (!type || !["office", "errands", "business"].includes(type)) {

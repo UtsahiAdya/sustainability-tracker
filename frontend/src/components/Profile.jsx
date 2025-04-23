@@ -17,7 +17,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 import "./Profile.css";
 
 
-const commuteOptions = ["Walk", "Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"];
+const commuteOptions = ["Walk","Cycle", "Metro", "Bus", "Car", "EV", "MotorBike", "Train", "Airplane"];
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -31,9 +31,10 @@ const Profile = () => {
 
 const ecoPoints = {
   Walk: 10,
+  Cycle:10,
   Metro: 9,
   Bus: 8,
-  Bike: 5,
+  MotorBike: 5,
   EV: 9,
   Car: 2,
   Train: 8,

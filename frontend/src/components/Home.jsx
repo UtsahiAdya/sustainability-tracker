@@ -37,8 +37,8 @@ const GLASSMORPHISM_STYLE = {
 
 // Commute colors mapping
 const COMMUTE_COLORS = {
-  Walk: "#4CAF50", Metro: "#2196F3", Bus: "#FF9800",
-  Car: "#F44336", EV: "#9C27B0", Bike: "#FFEB3B",
+  Walk: "#4CAF50", Cycle: "#81C784", Metro: "#2196F3", Bus: "#FF9800",
+  Car: "#F44336", EV: "#9C27B0", MotorBike: "#FFEB3B",
   Train: "#795548", Airplane: "#03A9F4",
 };
 
@@ -106,7 +106,7 @@ const Home = () => {
     totalDistance = 0,
     sustainabilityPoints = 0,
     mostFrequentCommute = "N/A",
-    pointsByMode = { Walk: 0, Metro: 0, Bus: 0, Car: 0, EV: 0, Bike: 0, Train: 0, Airplane: 0 },
+    pointsByMode = { Walk: 0, Cycle:0, Metro: 0, Bus: 0, Car: 0, EV: 0, MotorBike: 0, Train: 0, Airplane: 0 },
   } = userInfo;
 
   const pieData = Object.keys(pointsByMode)
