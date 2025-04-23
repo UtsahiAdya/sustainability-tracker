@@ -9,6 +9,9 @@ const Trip = require("../models/trip");
 dotenv.config();
 
 async function updateOfficeTrips() {
+
+// Log to verify if the updated data is fetched
+
   try {
     const today = new Date();
     const dayOfWeek = today.getDay(); // Sunday = 0, Monday = 1, ..., Saturday = 6
@@ -25,6 +28,8 @@ async function updateOfficeTrips() {
     });
 
     const users = await User.find().populate("profile");
+    console.log("Fetched users and profiles:", users);
+
 
     for (const user of users) {
       const profile = user.profile;
@@ -32,6 +37,7 @@ async function updateOfficeTrips() {
 
       for (const commute of profile.commuteModes) {
         const { mode, percentage } = commute;
+        console.log(`Processing mode: ${mode}, percentage: ${percentage}`);
 
         if (percentage === 0) continue;
 
