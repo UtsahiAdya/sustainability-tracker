@@ -5,6 +5,8 @@ import Profile from "./components/Profile";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Points from "./components/Points";
+import Ranking from "./components/Ranking";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -37,6 +39,8 @@ function App() {
         <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
         <Route path="/trips" element={user ? <Trips /> : <Navigate to="/login" />} />
         <Route path="/points" element={user ? <Points /> : <Navigate to="/login" />} />
+        <Route path="/ranking" element={user ? <Ranking /> : <Navigate to="/login" />} />
+
 
 
         {/*Auth Route */}

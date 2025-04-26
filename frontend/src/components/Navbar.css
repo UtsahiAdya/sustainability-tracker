@@ -77,3 +77,11 @@
   transform: translateY(-2px);
 }
 
+.nav-active {
+  font-weight: bold;
+  color: #006400 !important;
+  border-bottom: 2px solid #006400;
+  padding-bottom: 2px;
+  background-color: #e6ffe6;
+  border-radius: 5px;
+}

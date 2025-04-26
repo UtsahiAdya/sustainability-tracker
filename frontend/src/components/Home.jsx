@@ -188,8 +188,8 @@ const Home = () => {
       <Grid container spacing={3} justifyContent="center">
         {[
           { label: "Total Trips", value: totalTrips },
-          { label: "Total Distance (km)", value: totalDistance },
-          { label: "Sustainability Points", value: sustainabilityPoints },
+          { label: "Total Distance (km)", value: totalDistance.toFixed(2) },
+          { label: "Sustainability Points", value: sustainabilityPoints.toFixed(2) },
           { label: "Most Used Commute", value: mostFrequentCommute },
           { label: "Your Rank", value: `#${userRank ? userRank.rank : "N/A"}` },
         ].map((stat, i) => (
@@ -293,7 +293,7 @@ const Home = () => {
       </TableRow>
     </TableHead>
     <TableBody>
-      {leaderboard.map((user, index) => (
+      {leaderboard.slice(0, 3).map((user, index) => (
         <TableRow
           className="leaderboard-row"
           key={user._id}
@@ -308,7 +308,7 @@ const Home = () => {
           <TableCell style={{ color: "#013220" }}>{user.user?.name || "Anonymous"}{" "}
           {index === 0 ? "🥇" : index === 1 ? "🥈" : index === 2 ? "🥉" : ""}
           </TableCell>
-          <TableCell style={{ color: "#013220" }}>{user.sustainabilityPoints}</TableCell>
+          <TableCell style={{ color: "#013220" }}>{user.sustainabilityPoints.toFixed(2)}</TableCell>
         </TableRow>
       ))}
     </TableBody>

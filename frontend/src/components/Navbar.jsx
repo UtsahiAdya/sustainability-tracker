@@ -1,6 +1,6 @@
 // require('dotenv').config();
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 import "./Navbar.css";
 import CyclingLogo from '../assets/img/logo.png';
@@ -41,47 +41,34 @@ const Navbar = () => {
       <h2 className="logo">Travel towards Sustainability</h2>
       </div>
       <ul className="nav-links">
-        
-        <li>
-          <Link to="/home">Home</Link>
-        </li>
-        <li>
-          <Link to="/trips">Trips</Link>
-        </li>
-        <li>
-          <Link to="/profile">MyCommute</Link>
-        </li>
-        <li>
-          {/* <a href="/home#leaderboard" className="nav-link">Leaderboard</a> */}
-          <Link
-  to="/home#leaderboard"
-  className="nav-link"
-  onClick={() => {
-    if (window.location.pathname === "/home") {
-      const el = document.getElementById("leaderboard");
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
->
-  Leadership
-</Link>
+  <li>
+    <NavLink to="/home" className={({ isActive }) => (isActive ? "nav-active" : "")}>Home</NavLink>
+  </li>
+  <li>
+    <NavLink to="/trips" className={({ isActive }) => (isActive ? "nav-active" : "")}>Trips</NavLink>
+  </li>
+  <li>
+    <NavLink to="/ranking" className={({ isActive }) => (isActive ? "nav-active" : "")}>Ranking</NavLink>
+  </li>
+  <li>
+    <NavLink to="/profile" className={({ isActive }) => (isActive ? "nav-active" : "")}>MyCommute</NavLink>
+  </li>
+  <li>
+    <NavLink to="/points" className={({ isActive }) => (isActive ? "nav-active" : "")}>PointsAllocation</NavLink>
+  </li>
+  {user ? (
+    <li>
+      <button className="logout-btn" onClick={handleLogout}>Logout</button>
+    </li>
+  ) : (
+    <li>
+      <NavLink to="/login" className={({ isActive }) => (isActive ? "nav-active" : "")}>Login</NavLink>
+    </li>
+  )}
+</ul>
 
-        </li>
-        <li>
-          <Link to="/points">PointsAllocation </Link>
-        </li>
-        {user ? (
-          <li>
-            <button className="logout-btn" onClick={handleLogout}>
-              Logout
-            </button>
-          </li>
-        ) : (
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        )}
-      </ul>
+        
+        
     </nav>
   );
 };

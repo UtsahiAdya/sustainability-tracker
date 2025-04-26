@@ -8,8 +8,7 @@ const ensureAuthenticated = require("../middleware/authMiddleware");
 router.get("/", ensureAuthenticated, async (req, res) => {
   try {
     const topProfiles = await Profile.find()
-      .sort({ sustainabilityPoints: -1 })
-      .limit(10) // Adjust the limit as needed
+      .sort({ sustainabilityPoints: -1 })// Adjust the limit as needed
       .select("user sustainabilityPoints pointsByMode") // Select necessary fields
       .populate("user", "name"); // Populate the user field to get the name
 

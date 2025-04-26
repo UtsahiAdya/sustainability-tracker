@@ -1,0 +1,26 @@
+.ranking-container {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('../assets/img/img-2e1da321-053c-49b8-bb50-5a9dace82a16.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+  
+  .ranking-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0, 60, 0, 0.7));
+    z-index: 0;
+  }
+  
+  .ranking-container > * {
+    position: relative;
+    z-index: 1;
+  }
+  
