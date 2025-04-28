@@ -17,13 +17,15 @@ const Navbar = () => {
       setIsScrolled(scrollTop > 50); // Shrink after scrolling 50px
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    
    
     axios
       .get(`${apiUrl}/auth/user`, { withCredentials: true })
       .then((res) => setUser(res.data))
       .catch(() => setUser(null));
+
+      window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleLogout = () => {
