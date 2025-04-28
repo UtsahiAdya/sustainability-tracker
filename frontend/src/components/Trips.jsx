@@ -306,11 +306,11 @@ const Trips = () => {
                     {new Date(trip.date).toLocaleDateString()}
                   </TableCell>
                   <TableCell sx={{ color: "#013220" }}>{trip.type}</TableCell>
-                  <TableCell sx={{ color: "#013220" }}>{trip.distance}</TableCell>
+                  <TableCell sx={{ color: "#013220" }}>{trip.distance.toFixed(2)}</TableCell>
                   <TableCell sx={{ color: "#013220" }}>
                     {trip.commuteMode}
                   </TableCell>
-                  <TableCell sx={{ color: "#013220" }}>{trip.points}</TableCell>
+                  <TableCell sx={{ color: "#013220" }}>{trip.points.toFixed(2)}</TableCell>
                   <TableCell>
                     <IconButton onClick={() => handleEditClick(trip)}>
                       <EditIcon sx={{ color: "#006400" }} />
