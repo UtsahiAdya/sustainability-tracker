@@ -43,7 +43,7 @@ const commuteOptions = [
   "Train",
   "Airplane",
 ];
-const tripTypes = ["office", "errands", "business"];
+const tripTypes = ["Office", "Errands", "Business"];
 
 const Alert = React.forwardRef((props, ref) => (
   <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />
@@ -57,7 +57,7 @@ const Trips = () => {
     date: "",
     distance: "",
     commuteMode: "Walk",
-    type: "office",
+    type: "Office",
   });
   const [snackbar, setSnackbar] = useState({
     open: false,
@@ -70,11 +70,16 @@ const Trips = () => {
   });
   const [editOpen, setEditOpen] = useState(false);
   const [editTrip, setEditTrip] = useState(null);
+  const sortTrips = (tripsArray) => {
+    return tripsArray.sort((a, b) => new Date(b.date) - new Date(a.date));
+  };
+  
 
   useEffect(() => {
     axios
       .get(`${apiUrl}/api/trips`, { withCredentials: true })
-      .then((res) => setTrips(res.data))
+      // .then((res) => setTrips(res.data))
+      .then((res) => setTrips(sortTrips(res.data)))
       .catch(() => showSnackbar("Error fetching trips", "error"))
       .finally(() => setLoading(false));
   }, []);
@@ -114,13 +119,13 @@ const Trips = () => {
         withCredentials: true,
       })
       .then((res) => {
-        setTrips([res.data.trip, ...trips]);
+        setTrips(sortTrips([res.data.trip, ...trips]));
         setOpen(false);
         setNewTrip({
           date: "",
           distance: "",
           commuteMode: "Walk",
-          type: "office",
+          type: "Office",
         });
         showSnackbar("Trip added successfully!");
       })
@@ -133,7 +138,7 @@ const Trips = () => {
         withCredentials: true,
       })
       .then(() => {
-        setTrips(trips.filter((trip) => trip._id !== id));
+        setTrips(sortTrips(trips.filter((trip) => trip._id !== id)));
         showSnackbar("Trip deleted successfully");
       })
       .catch(() => showSnackbar("Error deleting trip", "error"));
@@ -183,11 +188,7 @@ const Trips = () => {
         withCredentials: true,
       })
       .then((res) => {
-        setTrips(
-          trips.map((trip) =>
-            trip._id === editTrip._id ? res.data.updatedTrip : trip
-          )
-        );
+        setTrips(sortTrips(trips.map((trip) => trip._id === editTrip._id ? res.data.updatedTrip : trip)));
         setEditOpen(false);
         showSnackbar("Trip updated successfully!");
       })
@@ -291,12 +292,12 @@ const Trips = () => {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell sx={{ color: "#013220" }}>Date</TableCell>
-                <TableCell sx={{ color: "#013220" }}>Type</TableCell>
-                <TableCell sx={{ color: "#013220" }}>Distance (km)</TableCell>
-                <TableCell sx={{ color: "#013220" }}>Commute Mode</TableCell>
-                <TableCell sx={{ color: "#013220" }}>Points</TableCell>
-                <TableCell sx={{ color: "#013220" }}>Actions</TableCell>
+                <TableCell sx={{ color: "#013220" , fontWeight:"bold", fontSize:"1.3rem"}}>Date</TableCell>
+                <TableCell sx={{ color: "#013220",  fontWeight:"bold", fontSize:"1.3rem"}}>Type</TableCell>
+                <TableCell sx={{ color: "#013220",  fontWeight:"bold", fontSize:"1.3rem" }}>Distance (km)</TableCell>
+                <TableCell sx={{ color: "#013220" ,  fontWeight:"bold", fontSize:"1.3rem"}}>Commute Mode</TableCell>
+                <TableCell sx={{ color: "#013220",  fontWeight:"bold" , fontSize:"1.3rem"}}>Points</TableCell>
+                <TableCell sx={{ color: "#013220",  fontWeight:"bold" , fontSize:"1.3rem"}}>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

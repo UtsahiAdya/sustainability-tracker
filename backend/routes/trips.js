@@ -9,13 +9,13 @@ const ensureAuthenticated = require("../middleware/authMiddleware");
 //Points Calculation Function
 const calculatePoints = (commuteMode, distance) => {
   const pointsMap = {
-    Walk: 10,
-    Cycle:10,
+    Walk: 20,
+    Cycle:20,
     Metro: 9,
     Bus: 8,
-    Car: 2,
+    Car: 0.5,
     EV: 9,
-    MotorBike: 5,
+    MotorBike: 2,
     Train: 8,
     Airplane: 0.01,
   };
@@ -49,7 +49,7 @@ router.post("/", ensureAuthenticated, async (req, res) => {
     if (!commuteMode || !["Walk","Cycle" ,"Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"].includes(commuteMode)) {
       return res.status(400).json({ error: "Invalid commute mode" });
     }
-    if (!type || !["office", "errands", "business"].includes(type)) {
+    if (!type || !["Office", "Errands", "Business"].includes(type)) {
       return res.status(400).json({ error: "Invalid trip type" });
     }
 
@@ -157,7 +157,7 @@ router.put("/:id", ensureAuthenticated, async (req, res) => {
     if (!commuteMode || !["Walk","Cycle" ,"Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"].includes(commuteMode)) {
       return res.status(400).json({ error: "Invalid commute mode" });
     }
-    if (!type || !["office", "errands", "business"].includes(type)) {
+    if (!type || !["Office", "Errands", "Business"].includes(type)) {
       return res.status(400).json({ error: "Invalid trip type" });
     }
 

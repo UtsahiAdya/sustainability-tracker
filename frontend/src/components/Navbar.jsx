@@ -9,8 +9,16 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50); // Shrink after scrolling 50px
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
    
     axios
       .get(`${apiUrl}/auth/user`, { withCredentials: true })
@@ -29,7 +37,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isScrolled ? 'shrink' : ''}`}>
        {/* <img src={logo} alt="Logo" className="logo-img" /> */}
        <div className="logo-section" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
       <img

@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 const apiUrl = import.meta.env.VITE_API_URL;
+import InputAdornment from '@mui/material/InputAdornment';
 import "./Profile.css";
 
 
@@ -235,6 +236,9 @@ const ecoPoints = {
                     value={commutePercentages[mode] || ""}
                     onChange={(e) => handlePercentageChange(mode, e.target.value)}
                     required
+                    InputProps={{
+                      endAdornment: <InputAdornment position="end">%</InputAdornment>,
+                    }}
                     sx={{
                       "& label": { color: "#013220" },
                       "& input": { color: "#013220" },

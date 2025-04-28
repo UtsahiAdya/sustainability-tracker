@@ -1,15 +1,18 @@
 html{
   background-color: #F0FFF0; 
+  
 }
-
 
 div#root{
   background-color: #F0FFF0; 
+  
 }
+ 
 
 .login-page {
     text-align: center;
     margin-top: 50px;
+    
     
   }
 

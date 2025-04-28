@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const commuteSchema = new mongoose.Schema({
   mode: {
     type: String,
-    enum: ["Walk","Cycle", "Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"],
+    enum: ["Walk","Cycle", "Metro", "Bus", "Car", "EV", "MotorBike", "Train", "Airplane"],
     required: true,
   },
   percentage: { type: Number, min: 0, max: 100, required: true },
