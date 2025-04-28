@@ -13,6 +13,7 @@ import {
   Fab,
   Table, TableHead, TableBody, TableRow, TableCell, TableContainer
 } from "@mui/material";
+import Avatar from '@mui/material/Avatar';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { useNavigate, useLocation } from "react-router-dom";
 import Stack from '@mui/material/Stack';
@@ -261,11 +262,79 @@ const Home = () => {
         )}
       </Grid> */}
 
+<div id="leaderboard">
+  <Typography variant="h5" gutterBottom align="center" style={{ marginTop: "40px" }}>
+    🏆 Sustainability Leadership
+  </Typography>
+
+  <Paper
+    elevation={4}
+    className="leaderboard-container"
+    style={{
+      ...GLASSMORPHISM_STYLE,
+      marginTop: "20px",
+      borderRadius: "16px",
+      padding: "20px",
+    }}
+  >
+    {/* Single Paper: all Top 3 inside */}
+    {leaderboard.slice(0, 3).map((user, index) => {
+      const medal = index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉";
+      const medalColors = ["#FFD700", "#C0C0C0", "#CD7F32"]; // gold, silver, bronze
+      return (
+        <div
+          key={user._id}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "12px 16px",
+            marginBottom: index !== 2 ? "12px" : "0", // no margin after last
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            borderRadius: "12px",
+            transition: "all 0.3s ease",
+            cursor: "pointer",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
+            e.currentTarget.style.transform = "scale(1.02)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+            e.currentTarget.style.transform = "scale(1)";
+          }}
+        >
+          {/* Left: Medal + Avatar + Name */}
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <Avatar
+              sx={{
+                width: 40,
+                height: 40,
+                marginRight: 2,
+                bgcolor: medalColors[index],
+              }}
+            >
+              {medal}
+            </Avatar>
+            <Typography variant="subtitle1" style={{ color: "#013220", fontWeight: "bold" }}>
+              {user.user?.name || "Anonymous"}
+            </Typography>
+          </div>
+
+          {/* Right: Points */}
+          <Typography variant="subtitle1" style={{ color: "#013220", fontWeight: "bold" }}>
+            {user.sustainabilityPoints.toFixed(2)}
+          </Typography>
+        </div>
+      );
+    })}
+  </Paper>
+</div>
 
 
 
 
-
+{/* 
 
 
 
@@ -315,7 +384,7 @@ const Home = () => {
   </Table>
 </TableContainer>
 </div>
-
+ */}
 
 
 
