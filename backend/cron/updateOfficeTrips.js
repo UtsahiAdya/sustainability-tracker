@@ -48,7 +48,7 @@ async function updateOfficeTrips() {
         date: today,
         distance: tripDistance,
         commuteMode: mode,
-        type: "office",
+        type: "Office",
         });
 
         await newTrip.save();
