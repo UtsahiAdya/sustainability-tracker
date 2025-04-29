@@ -20,7 +20,7 @@ const tripSchema = new mongoose.Schema({
 // Points Calculation based on sustainability
 tripSchema.pre("save", function (next) {
   const ecoPoints = {
-    Walk: 20, Cycle:20, Metro: 9, Bus: 8, MotorBike: 2, EV: 9, Car: 0.5, Train: 8, Airplane: 0.01
+    Walk: 20, Cycle:20, Metro: 12, Bus: 8, MotorBike: 2, EV: 10, Car: 0.5, Train: 9, Airplane: 0.01
   };
   this.points = ecoPoints[this.commuteMode] * this.distance; // Formula
   next();

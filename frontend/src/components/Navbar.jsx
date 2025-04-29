@@ -48,7 +48,7 @@ const Navbar = () => {
         className="logo-img"
         style={{ width: "65px", height: "65px", margin:"0px", padding:"0px" }}
       />
-      <h2 className="logo">Travel towards Sustainability</h2>
+      <h2 className="logo">GreenMiles</h2>
       </div>
       <ul className="nav-links">
   <li>

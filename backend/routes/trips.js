@@ -11,12 +11,12 @@ const calculatePoints = (commuteMode, distance) => {
   const pointsMap = {
     Walk: 20,
     Cycle:20,
-    Metro: 9,
+    Metro: 12,
     Bus: 8,
     Car: 0.5,
-    EV: 9,
+    EV: 10,
     MotorBike: 2,
-    Train: 8,
+    Train: 9,
     Airplane: 0.01,
   };
   const points = pointsMap[commuteMode] * distance;
