@@ -18,7 +18,9 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recha
 import { useNavigate, useLocation } from "react-router-dom";
 import Stack from '@mui/material/Stack';
 import "../App.css"
-import welcomeBg from '../assets/img/img-9091d1ae-a786-4375-bb3e-55c2460c389f.png';
+import welcomeBg from '../assets/img/WelcomeBg1.png';
+import "./home.css"; // For CSS styling
+
 
 
 
@@ -29,11 +31,20 @@ const COLORS = ["#4CAF50", "#2196F3", "#FFC107", "#FF5722", "#9C27B0", "#607D8B"
 const BG_COLOR = "#F0FFF0"; // Background color   "#070F2B"
 const TEXT_COLOR ="#013220" ; // Light text for dark mode  "#EDEDED"
 const GLASSMORPHISM_STYLE = {
-  background: "#F0FFF0",
-  backdropFilter: "blur(10px)",
-  borderRadius: "12px",
-  padding: "20px",
-  color: TEXT_COLOR,
+  // background: "#F0FFF0",
+  // backdropFilter: "blur(10px)",
+  // borderRadius: "12px",
+  // padding: "20px",
+  // color: TEXT_COLOR,
+ 
+
+  background: "rgba(240, 255, 240, 0.3)",  // More transparent background (lower opacity)
+  backdropFilter: "blur(15px)",            // Moderate blur effect for transparency
+  borderRadius: "12px",                    // Rounded corners
+  padding: "20px",                         // Padding for content spacing
+  color: TEXT_COLOR,                       // Text color
+  border: "1px solid rgba(255, 255, 255, 0.2)", // Subtle border for slight definition
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",  // Soft shadow to maintain a subtle effect
 };
 
 // Commute colors mapping
@@ -117,9 +128,7 @@ const Home = () => {
   // console.log("Pie Data:", pieData);
   return (
     <div style={{ backgroundColor: BG_COLOR, minHeight: "100vh", padding: "20px", color: TEXT_COLOR }}>
-      {/* <Typography variant="h4" gutterBottom align="center" style={{ color: TEXT_COLOR }}>
-        Welcome, {name} 👋
-      </Typography> */}
+     <div className="home-bg-section">
        <div
   style={{
     position: "relative",
@@ -129,59 +138,14 @@ const Home = () => {
     overflow: "hidden",
     height: "200px",
   }}
->
-  {/* Background Layer */}
-  <div
-    style={{
-      backgroundImage: `url(${welcomeBg})`,
-      backgroundSize: "150px",
-      backgroundRepeat: "repeat",
-      position: "absolute",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      opacity: 0.5, // Slightly lower for more subtlety
-      zIndex: 1,
-    }}
-  />
-
-  {/* Darker Overlay with Blur */}
-  <div
-    style={{
-      backgroundColor: "rgba(60, 59, 59, 0)",
-      backdropFilter: "blur(1px)", // Adds a blur to background for readability
-      position: "absolute",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      zIndex: 2,
-    }}
-  />
-
-  {/* Text Content */}
-  <div
-    style={{
-      position: "relative",
-      zIndex: 3,
-      color: "#013220",
-      background:"white",
-      width:"30%",
-      margin:"auto",
-      backgroundColor:"#F0FFF0",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      height: "80%",
-      fontSize: "28px",
-      fontWeight: "800",
-      textShadow: "2px 2px 8px rgba(0, 0, 0, 0.7)", // Adds shadow for more contrast
-    }}
-  >
+> 
+<div className="welcome-section" >
+  <div className="welcome-text" style={GLASSMORPHISM_STYLE}>
     Welcome, {name} 👋
   </div>
 </div>
+</div>
+     
 
 
 
@@ -234,33 +198,9 @@ const Home = () => {
             <Tooltip />
             <Legend verticalAlign="bottom" iconType="circle" />
           </PieChart>
-          {/* <Typography align="center" style={{ marginTop: '10px' }}>
-  Total Points: {pieData.reduce((sum, mode) => sum + mode.value, 0)}
-</Typography> */}
-
         </ResponsiveContainer>
-      </Paper>
-{/* 
-      <Typography variant="h5" gutterBottom align="center" style={{ marginTop: "40px" }}>
-        🏆 Sustainability Leaderboard
-      </Typography>
-      <Grid container spacing={2} justifyContent="center">
-        {
-        leaderboard.map((user, index) => (
-          <Grid item xs={12} sm={6} md={4} key={user._id}>
-            <Card elevation={3} style={{ ...GLASSMORPHISM_STYLE, border: index === 0 ? "3px solid gold" : "none" }}>
-              <CardContent>
-                <Typography variant="h6">
-                  {index + 1}. {user.user?.name || "Anonymous"}{" "}
-                  {index === 0 ? "🥇" : index === 1 ? "🥈" : index === 2 ? "🥉" : ""}
-                </Typography>
-                <Typography variant="body1">Points: {user.sustainabilityPoints}</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        )
-        )}
-      </Grid> */}
+ </Paper>
+ </div>
 
 <div id="leaderboard">
   <Typography variant="h5" gutterBottom align="center" style={{ marginTop: "40px" }}>
@@ -331,72 +271,6 @@ const Home = () => {
   </Paper>
 </div>
 
-
-
-
-{/* 
-
-
-
-
-
-
-       
-<div id="leaderboard">
-<Typography variant="h5" gutterBottom align="center" style={{ marginTop: "40px" }} >
-  🏆 Sustainability Leadership
-</Typography>
-
-<TableContainer
-  component={Paper}
-  elevation={3}
-  className="leaderboard-container"
-  style={{...GLASSMORPHISM_STYLE, marginTop: "20px", borderRadius: "12px"  }}
->
-  <Table>
-    <TableHead>
-      <TableRow>
-        <TableCell style={{ fontWeight: "bold", color: "#013220" }}>Rank</TableCell>
-        <TableCell style={{ fontWeight: "bold", color: "#013220" }}>Name</TableCell>
-        <TableCell style={{ fontWeight: "bold", color: "#013220" }}>Points</TableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      {leaderboard.slice(0, 3).map((user, index) => (
-        <TableRow
-          className="leaderboard-row"
-          key={user._id}
-          style={{
-            
-          }}
-        >
-          <TableCell style={{ color: "#013220" }}>
-            {index + 1}{" "}
-            
-          </TableCell>
-          <TableCell style={{ color: "#013220" }}>{user.user?.name || "Anonymous"}{" "}
-          {index === 0 ? "🥇" : index === 1 ? "🥈" : index === 2 ? "🥉" : ""}
-          </TableCell>
-          <TableCell style={{ color: "#013220" }}>{user.sustainabilityPoints.toFixed(2)}</TableCell>
-        </TableRow>
-      ))}
-    </TableBody>
-  </Table>
-</TableContainer>
-</div>
- */}
-
-
-
-
-
-
-
-
-
-
-
-
       {/* Floating Add Trip Button */}
       <Fab
   variant="extended"
@@ -419,8 +293,8 @@ const Home = () => {
 >
   Add Trip
 </Fab>
+</div>
 
-    </div>
   );
 };
 
@@ -433,6 +307,223 @@ export default Home;
 //bg-FOFFFO
 //TEXT-013220
 //BORDER-006400
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 
 

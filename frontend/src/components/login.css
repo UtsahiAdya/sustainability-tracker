@@ -1,9 +1,113 @@
-html, body, div#root {
+/* .login-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* object-fit: contain; shows full image without cropping */
+  /* z-index: -1; */
+/* } */
+
+/* .login-card {
+  position: relative;
+  background-color: rgba(240, 255, 240, 0.85);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 100, 0, 0.3);
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 18%;
+  text-align: center;
+} */
+
+/* .login-btn {
+  background-color: #006400;
+  color: #F0FFF0;
+  font-size: 1rem;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-top: 2%;
+} */
+
+/* .login-btn:hover {
+  background-color: #228B22;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 100, 0, 0.4);
+  transform: translateY(-2px);
+} */
+
+/* .login-text {
+  color: #013220;
+} */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ html, body, div#root { 
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #F0FFF0; /* no image here */
-}
+  background-color: #F0FFF0; /*no image here*/
+}  
 
 /* Login page background */
 .login-page {
@@ -13,6 +117,21 @@ html, body, div#root {
   justify-content: center;
   align-items: center;
   background: url('../assets/img/login.png') no-repeat center center fixed;
+  background-size: contain; /* shows full image */
+  background-repeat: no-repeat;
+   background-color: #f0fff0; /*fallback for empty space */
+  overflow: hidden;
+ }  
+
+
+
+.login-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('../assets/img/login.png') no-repeat center fixed;
   background-size: cover;
   overflow: hidden;
 }

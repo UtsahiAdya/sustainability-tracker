@@ -1,0 +1,161 @@
+/* home.css */
+
+.home-bg-section {
+    background-image: url('../assets/img/WelcomeBg2.png');
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center top; 
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  .welcome-section {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-text {
+    background-color: rgba(240, 255, 240, 0.9); /* Light glass-like background */
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 28px;
+    font-weight: 800;
+    color: #013220;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .welcome-section {
+    height: 250px;
+    background-image: url('../assets/img/WelcomeBg1.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .welcome-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+  }
+   */

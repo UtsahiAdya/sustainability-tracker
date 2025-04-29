@@ -2,6 +2,8 @@
 import React from "react";
 import "./login.css";
 const apiUrl = import.meta.env.VITE_API_URL|| "API URL not found";
+import loginBg from '../assets/img/login.png';
+
 console.log("API URL:", apiUrl);
 
 

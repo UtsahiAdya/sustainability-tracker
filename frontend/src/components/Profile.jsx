@@ -28,6 +28,7 @@ const Profile = () => {
   const [commutePercentages, setCommutePercentages] = useState({});
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const [isFocused, setIsFocused] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
 
 const ecoPoints = {
@@ -229,7 +230,7 @@ const ecoPoints = {
               </Grid>
               {selectedCommutes.includes(mode) && (
                 <Grid item xs={6}>
-                  <TextField
+                  {/* <TextField
                     label="Percentage"
                     type="number"
                     fullWidth
@@ -254,7 +255,37 @@ const ecoPoints = {
                         
                       },
                     }}
-                  />
+                  /> */}
+                     <TextField
+  label="Percentage"
+  type="number"
+  fullWidth
+  value={commutePercentages[mode] || ""}
+  onChange={(e) => handlePercentageChange(mode, e.target.value)}
+  required
+  InputProps={{
+    endAdornment:
+      commutePercentages[mode] && commutePercentages[mode] !== "" ? (
+        <InputAdornment position="end" sx={{ marginLeft: '-178px' }}>
+          <span style={{ paddingLeft: 0, color: "#013220" }}>%</span>
+        </InputAdornment>
+      ) : null,
+  }}
+  sx={{
+    "& label": { color: "#013220" },
+    "& input": {
+      color: "#013220",
+      pr: '10px'
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": { borderColor: "#535C91" },
+      "&:hover fieldset": { borderColor: "#9290C3" },
+      "&.Mui-focused fieldset": { borderColor: "#006400" },
+      backgroundColor: "rgba(255, 255, 255, 0.05)",
+    },
+  }}
+/>
+
                 </Grid>
               )}
             </Grid>
