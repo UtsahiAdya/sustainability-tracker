@@ -295,7 +295,7 @@ const Trips = () => {
                 <TableCell sx={{ color: "#013220" , fontWeight:"bold", fontSize:"1.3rem"}}>Date</TableCell>
                 <TableCell sx={{ color: "#013220",  fontWeight:"bold", fontSize:"1.3rem"}}>Type</TableCell>
                 <TableCell sx={{ color: "#013220",  fontWeight:"bold", fontSize:"1.3rem" }}>Distance (km)</TableCell>
-                <TableCell sx={{ color: "#013220" ,  fontWeight:"bold", fontSize:"1.3rem"}}>Commute Mode</TableCell>
+                <TableCell sx={{ color: "#013220" , fontWeight:"bold", fontSize:"1.3rem"}}>Commute Mode</TableCell>
                 <TableCell sx={{ color: "#013220",  fontWeight:"bold" , fontSize:"1.3rem"}}>Points</TableCell>
                 <TableCell sx={{ color: "#013220",  fontWeight:"bold" , fontSize:"1.3rem"}}>Actions</TableCell>
               </TableRow>

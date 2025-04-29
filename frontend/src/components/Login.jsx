@@ -13,8 +13,10 @@ const Login = () => {
 
   return (
     <div className="login-page">
+          <div className="login-card">
       <h1 className="login-text">Login</h1>
       <button onClick={loginWithGoogle} className="login-btn">Sign In With Google</button>
+    </div>
     </div>
   );
 };

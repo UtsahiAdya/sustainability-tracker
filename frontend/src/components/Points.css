@@ -16,7 +16,7 @@
   }
   
   /* Darker gradient overlay */
-  .points-container::before {
+  /* .points-container::before {
     content: "";
     position: absolute;
     top: 0;
@@ -25,7 +25,7 @@
     bottom: 0;
     background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0, 60, 0, 0.7));
     z-index: 0;
-  }
+  } */
   
   /* Makes form box readable */
   .points-container > * {

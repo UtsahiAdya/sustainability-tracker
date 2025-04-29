@@ -29,7 +29,7 @@ const COLORS = ["#4CAF50", "#2196F3", "#FFC107", "#FF5722", "#9C27B0", "#607D8B"
 const BG_COLOR = "#F0FFF0"; // Background color   "#070F2B"
 const TEXT_COLOR ="#013220" ; // Light text for dark mode  "#EDEDED"
 const GLASSMORPHISM_STYLE = {
-  background: "rgba(255, 255, 255, 0.1)",
+  background: "#F0FFF0",
   backdropFilter: "blur(10px)",
   borderRadius: "12px",
   padding: "20px",

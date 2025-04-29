@@ -1,4 +1,451 @@
-html{
+html, body, div#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #F0FFF0; /* no image here */
+}
+
+/* Login page background */
+.login-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('../assets/img/login.png') no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* Blur and dark overlay */
+/* .login-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+} */
+
+/* Login card */
+.login-card {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(240, 255, 240, 1);
+  height: 150px;
+  padding: 40px;
+  border-radius: 12px;
+  width: 300px;
+  box-shadow: 0 8px 32px rgba(0, 100, 0, 0.3);
+  text-align: center;
+}
+
+/* Login heading */
+.login-text {
+  color: #013220;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
+/* Login button */
+.login-btn {
+  background-color: #006400;
+  color: #F0FFF0;
+  font-size: 1rem;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #228B22;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 100, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* html, body, div#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #F0FFF0;
+}
+
+/* Background image only for login-page */
+/* .login-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  background: url('../assets/img/login.png') no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+} */
+
+/* .login-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.4); /* dark overlay */
+  /* z-index: 1;
+} */ 
+
+/* The actual login card */
+/* .login-page > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* rest of your styles */
+/* .login-page > h1, 
+.login-page > button {
+  background-color: rgba(240, 255, 240, 0.8);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 100, 0, 0.3);
+}  */
+/* 
+.login-btn {
+  margin-top: 1rem;
+  background-color: #006400;
+  color: #F0FFF0;
+  font-size: 1rem;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #228B22;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 100, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.login-text {
+  color: #013220;
+} */
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* html, body, div#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url('../assets/img/login.png') no-repeat center center fixed;
+  background-size: cover;
+  background-color: #F0FFF0;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.login-page {
+  text-align: center;
+  margin-top: 10%;
+  background-color: rgba(240, 255, 240, 0.8);
+  padding: 40px;
+  border-radius: 12px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 8px 32px rgba(0, 100, 0, 0.3);
+}
+
+.login-btn {
+  background-color: #006400;
+  color: #F0FFF0;
+  font-size: 1rem;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-top: 2%;
+}
+
+.login-btn:hover {
+  background-color: #228B22;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 100, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.login-text {
+  color: #013220;
+}
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* html{
   background-color: #F0FFF0; 
   
 }
@@ -32,11 +479,11 @@ div#root{
   
 .login-btn:hover {
   background-color: #228B22; /* lighter green for hover */
-  color: #ffffff;
+  /* color: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 100, 0, 0.4);
   transform: translateY(-2px);
 }
   
 .login-text{
   color: #013220
-}
+} */ 

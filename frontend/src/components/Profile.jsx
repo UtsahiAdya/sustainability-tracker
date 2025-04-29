@@ -237,16 +237,21 @@ const ecoPoints = {
                     onChange={(e) => handlePercentageChange(mode, e.target.value)}
                     required
                     InputProps={{
-                      endAdornment: <InputAdornment position="end">%</InputAdornment>,
+                      endAdornment:    <InputAdornment position="end" sx={{ marginLeft: '-178px' }}>
+                      <span style={{ paddingLeft: 0, color: "#013220" }}>%</span>
+                    </InputAdornment>,
                     }}
                     sx={{
                       "& label": { color: "#013220" },
-                      "& input": { color: "#013220" },
+                      "& input": { color: "#013220",
+                        pr: '10px'
+                       },
                       "& .MuiOutlinedInput-root": {
                         "& fieldset": { borderColor: "#535C91" },
                         "&:hover fieldset": { borderColor: "#9290C3" },
                         "&.Mui-focused fieldset": { borderColor: "#006400" },
-                        backgroundColor: "rgba(255, 255, 255, 0.05)"
+                        backgroundColor: "rgba(255, 255, 255, 0.05)",
+                        
                       },
                     }}
                   />
