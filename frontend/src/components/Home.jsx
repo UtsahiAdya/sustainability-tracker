@@ -19,7 +19,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Stack from '@mui/material/Stack';
 import "../App.css"
 import welcomeBg from '../assets/img/WelcomeBg1.png';
-import "./home.css"; // For CSS styling
+import "./Home.css"; // For CSS styling
 
 
 
