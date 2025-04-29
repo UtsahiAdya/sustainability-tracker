@@ -46,7 +46,7 @@ router.post("/", ensureAuthenticated, async (req, res) => {
     if (!distance || distance <= 0) {
       return res.status(400).json({ error: "Distance must be a positive number" });
     }
-    if (!commuteMode || !["Walk","Cycle" ,"Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"].includes(commuteMode)) {
+    if (!commuteMode || !["Walk","Cycle" ,"Metro", "Bus", "Car", "EV", "MotorBike", "Train", "Airplane"].includes(commuteMode)) {
       return res.status(400).json({ error: "Invalid commute mode" });
     }
     if (!type || !["Office", "Errands", "Business"].includes(type)) {
@@ -154,7 +154,7 @@ router.put("/:id", ensureAuthenticated, async (req, res) => {
     if( distance <= 0){
       return res.status(400).json({error:"Distance must be positive and greater than 0"})
     }
-    if (!commuteMode || !["Walk","Cycle" ,"Metro", "Bus", "Car", "EV", "Bike", "Train", "Airplane"].includes(commuteMode)) {
+    if (!commuteMode || !["Walk","Cycle" ,"Metro", "Bus", "Car", "EV", "MotorBike", "Train", "Airplane"].includes(commuteMode)) {
       return res.status(400).json({ error: "Invalid commute mode" });
     }
     if (!type || !["Office", "Errands", "Business"].includes(type)) {

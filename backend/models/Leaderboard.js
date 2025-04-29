@@ -9,7 +9,7 @@ const leaderboardSchema = new mongoose.Schema({
     Bus: { type: Number, default: 0 },
     Car: { type: Number, default: 0 },
     EV: { type: Number, default: 0 },
-    Bike: { type: Number, default: 0 },
+    MotorBike: { type: Number, default: 0 },
     Train: { type: Number, default: 0 },
     Airplane: { type: Number, default: 0 },
   },
