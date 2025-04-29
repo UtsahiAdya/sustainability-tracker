@@ -1,0 +1,19 @@
+ 
+  /* Optional: add a dark overlay */
+  .trips-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* adjust darkness here */
+    z-index: 0;
+  }
+  
+  /* To make sure content is above the background and overlay */
+  .trips-page > * {
+    position: relative;
+    z-index: 1;
+  }
+  
