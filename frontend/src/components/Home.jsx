@@ -176,7 +176,7 @@ const Home = () => {
         </Typography>
         <ResponsiveContainer width="100%" height={350}>
           <PieChart>
-            <Pie
+            {/* <Pie
               data={pieData}
               dataKey="value"
               nameKey="name"
@@ -188,15 +188,64 @@ const Home = () => {
               // label={({ name, percent }) => `${name} (${(percent * 100).toFixed(1)}%)`}
               label={({ name, percent }) => {
                 const percentage = (percent * 100);
-                return `${name} (${percentage < 0.1 ? "< 0.1" : percentage.toFixed(1)}%)`;
-              }}
+                return  
+                   
+                    `${name} (${percentage < 0.1 ? "< 0.1" : percentage.toFixed(1)}%)`;
+              }} 
+                  
             >
               {pieData.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.color} />
               ))}
-            </Pie>
+            </Pie> */}
+            <Pie
+  data={pieData}
+  dataKey="value"
+  nameKey="name"
+  cx="50%"
+  cy="50%"
+  outerRadius={100} // Slightly reduced to prevent overlap
+  innerRadius={50}
+  paddingAngle={3}
+  // labelLine={{  stroke: "#000000",  // Custom green color
+  //   strokeWidth: 2, }},
+  labelLine={false}
+  label={({ name, percent, x, y }) => {
+    const percentage = percent * 100;
+    return (
+      <text
+        x={x}
+        y={y}
+        fill="#013220"
+        textAnchor="middle"
+        dominantBaseline="central"
+        fontSize={16} // Increased font size
+        fontWeight="500"
+      >
+        {`${name} (${percentage < 0.1 ? "< 0.1" : percentage.toFixed(1)}%)`}
+      </text>
+    );
+  }}
+>
+  {pieData.map((entry, index) => (
+    <Cell key={`cell-${index}`} fill={entry.color} />
+  ))}
+</Pie>
+
             <Tooltip />
-            <Legend verticalAlign="bottom" iconType="circle" />
+    
+            <Legend verticalAlign="bottom" iconType="circle"
+            wrapperStyle={{
+              background: "rgba(7, 56, 12, 0.7)",
+              borderRadius: "12px",
+              padding: "10px 20px",
+              marginTop: "20px",
+              textAlign: "center",
+              color: "#013220",
+              fontWeight: 500,
+            }}
+             />
+             
           </PieChart>
         </ResponsiveContainer>
  </Paper>
