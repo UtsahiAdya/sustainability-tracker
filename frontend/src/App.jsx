@@ -42,7 +42,7 @@ function App() {
         <Route path="/trips" element={user ? <Trips /> : <Navigate to="/login" />} />
         <Route path="/points" element={user ? <Points /> : <Navigate to="/login" />} />
         <Route path="/ranking" element={user ? <Ranking /> : <Navigate to="/login" />} />
-        <Route path="/auth/success" element={<AuthSuccess />} />
+        {/* <Route path="/auth/success" element={<AuthSuccess />} /> */}
 
 
 

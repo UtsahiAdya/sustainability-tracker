@@ -45,7 +45,7 @@ router.get(
 
       // Redirect to home if profile exists
       
-      res.redirect(`${FRONTEND_URL}/auth/success`);
+      res.redirect(`${FRONTEND_URL}/home`);
     } catch (err) {
       console.error("Error checking user profile:", err);
       res.redirect(`${FRONTEND_URL}/login`);
