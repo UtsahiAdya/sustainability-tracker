@@ -55,6 +55,11 @@ router.get(
 
 // 🔹 Check if user is logged in (Session Persistence)
 router.get("/user", (req, res) => {
+  console.log("=== /auth/user ===");
+  console.log("Session ID:", req.sessionID);
+  console.log("Session Object:", req.session);
+  console.log("Is Authenticated:", req.isAuthenticated());
+  console.log("User Object:", req.user);
   console.log('Session:', req.session); 
   if (req.isAuthenticated()) {
     res.json(req.user);
