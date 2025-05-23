@@ -6,6 +6,8 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Points from "./components/Points";
 import Ranking from "./components/Ranking";
+import AuthSuccess from "./components/AuthSuccess"; // Add this import
+
 
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -40,6 +42,8 @@ function App() {
         <Route path="/trips" element={user ? <Trips /> : <Navigate to="/login" />} />
         <Route path="/points" element={user ? <Points /> : <Navigate to="/login" />} />
         <Route path="/ranking" element={user ? <Ranking /> : <Navigate to="/login" />} />
+        <Route path="/auth/success" element={<AuthSuccess />} />
+
 
 
 
